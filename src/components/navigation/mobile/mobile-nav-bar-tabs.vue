@@ -10,12 +10,18 @@
       label="Public"
       :handle-click="handleClick"
     />
-    <MobileNavBarTab
-      path="/protected"
-      label="Protected"
-      :handle-click="handleClick"
-    />
-    <MobileNavBarTab path="/admin" label="Admin" :handle-click="handleClick" />
+    <template v-if="$auth0.isAuthenticated">
+      <MobileNavBarTab
+        path="/protected"
+        label="Protected"
+        :handle-click="handleClick"
+      />
+      <MobileNavBarTab
+        path="/admin"
+        label="Admin"
+        :handle-click="handleClick"
+      />
+    </template>
   </div>
 </template>
 

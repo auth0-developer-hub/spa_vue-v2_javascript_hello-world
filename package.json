@@ -9,6 +9,7 @@
     "api": "json-server --host 0.0.0.0 --port 6060 --watch json-server/db.json --routes json-server/routes.json"
   },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^2.0.1",
     "axios": "^0.27.2",
     "vue": "^2.6.14",
     "vue-router": "^3.5.3"

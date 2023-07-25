@@ -1,6 +1,8 @@
 import HomePage from "@/pages/home-page.vue";
+import CallbackPage from "@/pages/callback-page.vue";
 import Vue from "vue";
 import Router from "vue-router";
+import { authenticationGuard } from "../authentication-guard";
 
 Vue.use(Router);
 
@@ -23,6 +25,7 @@ const router = new Router({
       path: "/profile",
       name: "profile",
       component: ProfilePage,
+      beforeEnter: authenticationGuard,
     },
     {
       path: "/public",
@@ -33,11 +36,18 @@ const router = new Router({
       path: "/protected",
       name: "protected",
       component: ProtectedPage,
+      beforeEnter: authenticationGuard,
     },
     {
       path: "/admin",
       name: "admin",
       component: AdminPage,
+      beforeEnter: authenticationGuard,
+    },
+    {
+      path: "/callback",
+      name: "callback",
+      component: CallbackPage,
     },
     {
       path: "*",

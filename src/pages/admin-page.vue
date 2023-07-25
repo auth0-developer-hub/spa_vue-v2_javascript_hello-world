@@ -37,7 +37,8 @@ export default {
     };
   },
   async mounted() {
-    const { data, error } = await getAdminResource();
+    const accessToken = await this.$auth0.getAccessTokenSilently();
+    const { data, error } = await getAdminResource(accessToken);
     if (data) {
       this.message = JSON.stringify(data, null, 2);
     }

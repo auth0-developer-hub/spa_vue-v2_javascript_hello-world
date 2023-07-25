@@ -8,6 +8,7 @@ Vue.use(Auth0Plugin, {
   domain: import.meta.env.VITE_AUTH0_DOMAIN,
   clientId: import.meta.env.VITE_AUTH0_CLIENT_ID,
   redirectUri: import.meta.env.VITE_AUTH0_CALLBACK_URL,
+  audience: import.meta.env.VITE_AUTH0_AUDIENCE,
   onRedirectCallback: (appState) => {
     router.push(
       appState && appState.targetPath
